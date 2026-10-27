@@ -1,13 +1,14 @@
 /**
  * Name: Michelle Cruz
- * Date: October 18, 2026
- * Purpose: Runs the Week 1 console menu and displays sample contact objects.
+ * Date: October 26, 2026
+ * Purpose: Runs the Week 2 console menu and displays sample contact objects.
  */
 import java.util.Scanner;
 
 public class ContactApp {
     public static void main(String[] args) {
-        Contact[] contacts = {
+        // Interface references hold three different contact types.
+        Displayable[] contacts = {
             new BusinessContact("Elena", "Torres", "703-555-0101", "elena@example.com",
                 "120 Sample Lane", "Woodbridge", "VA", "22191", "Sample Design Studio"),
             new FamilyContact("Daniel", "Cruz", "571-555-0102", "daniel@example.com",
@@ -15,8 +16,8 @@ public class ContactApp {
             new FriendContact("Maya", "Bennett", "540-555-0103", "maya@example.com",
                 "82 Demo Drive", "Fredericksburg", "VA", "22401", "Hiking")
         };
-        System.out.println("Project Week 1 - Contacts Application");
-        System.out.println("Inheritance, Composition, and User Interactions");
+        System.out.println("Project Week 2 - Contacts Application");
+        System.out.println("Software Design, Interfaces, and Polymorphism");
         System.out.println("Michelle Cruz");
         System.out.println("Welcome! Type a menu number and press Enter.");
         System.out.println("This demo contains fictional sample contacts.");
@@ -31,7 +32,8 @@ public class ContactApp {
                 switch (selection) {
                     case "1":
                         System.out.println("\nCONTACT DIRECTORY");
-                        for (Contact contact : contacts) {
+                        // Polymorphism: the runtime object determines which display() runs.
+                        for (Displayable contact : contacts) {
                             contact.display();
                             System.out.println();
                         }

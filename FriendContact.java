@@ -1,6 +1,6 @@
 /**
  * Name: Michelle Cruz
- * Date: October 18, 2026
+ * Date: October 26, 2026
  * Purpose: Represents a friend contact using inheritance.
  */
 // Inheritance: FriendContact extends the shared Contact base class.

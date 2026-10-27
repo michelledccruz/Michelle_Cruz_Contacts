@@ -1,9 +1,9 @@
 /**
  * Name: Michelle Cruz
- * Date: October 18, 2026
+ * Date: October 26, 2026
  * Purpose: Defines shared contact information and demonstrates composition.
  */
-public class Contact {
+public class Contact implements Displayable {
     private final String firstName;
     private final String lastName;
     private final String phone;
@@ -22,6 +22,8 @@ public class Contact {
 
     public String getType() { return "General"; }
 
+    // Interface implementation: supplies the display behavior required by Displayable.
+    @Override
     public void display() {
         System.out.println("Type: " + getType());
         System.out.println("Name: " + firstName + " " + lastName);
