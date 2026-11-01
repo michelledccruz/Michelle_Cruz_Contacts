@@ -1,9 +1,9 @@
 /**
  * Name: Michelle Cruz
- * Date: October 26, 2026
+ * Date: November 1, 2026
  * Purpose: Defines shared contact information and demonstrates composition.
  */
-public class Contact implements Displayable {
+public abstract class Contact implements Displayable {
     private final String firstName;
     private final String lastName;
     private final String phone;
@@ -11,7 +11,7 @@ public class Contact implements Displayable {
     // Composition: each contact creates and owns an Address object.
     private final Address address;
 
-    public Contact(String firstName, String lastName, String phone, String email,
+    protected Contact(String firstName, String lastName, String phone, String email,
                    String street, String city, String state, String zip) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -20,15 +20,24 @@ public class Contact implements Displayable {
         this.address = new Address(street, city, state, zip);
     }
 
-    public String getType() { return "General"; }
+    // Abstraction: every concrete contact must supply its category and detail.
+    public abstract String getType();
+    protected abstract String getDetail();
+
+    // Overloaded constructor supplies an explicit default for a missing email.
+    protected Contact(String firstName, String lastName, String phone,
+                      String street, String city, String state, String zip) {
+        this(firstName, lastName, phone, "Not provided", street, city, state, zip);
+    }
 
     // Interface implementation: supplies the display behavior required by Displayable.
     @Override
-    public void display() {
+    public final void display() {
         System.out.println("Type: " + getType());
         System.out.println("Name: " + firstName + " " + lastName);
         System.out.println("Phone: " + phone);
         System.out.println("Email: " + email);
         System.out.println("Address: " + address);
+        System.out.println(getDetail());
     }
 }

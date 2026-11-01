@@ -1,6 +1,6 @@
 /**
  * Name: Michelle Cruz
- * Date: October 26, 2026
+ * Date: November 1, 2026
  * Purpose: Represents a friend contact using inheritance.
  */
 // Inheritance: FriendContact extends the shared Contact base class.
@@ -17,9 +17,15 @@ public class FriendContact extends Contact {
     @Override
     public String getType() { return "Friend"; }
 
+    // Protected: only the class hierarchy needs this display hook.
     @Override
-    public void display() {
-        super.display();
-        System.out.println("Shared interest: " + sharedInterest);
+    protected String getDetail() { return "Shared interest: " + sharedInterest; }
+
+    // Overload: callers can create a contact before an email is available.
+    public FriendContact(String firstName, String lastName, String phone,
+                         String street, String city, String state, String zip,
+                         String sharedInterest) {
+        super(firstName, lastName, phone, street, city, state, zip);
+        this.sharedInterest = sharedInterest;
     }
 }

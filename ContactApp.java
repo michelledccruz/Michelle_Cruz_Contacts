@@ -1,23 +1,24 @@
 /**
  * Name: Michelle Cruz
- * Date: October 26, 2026
- * Purpose: Runs the Week 2 console menu and displays sample contact objects.
+ * Date: November 1, 2026
+ * Purpose: Runs the Week 3 console menu and displays sample contact objects.
  */
 import java.util.Scanner;
 
 public class ContactApp {
     public static void main(String[] args) {
-        // Interface references hold three different contact types.
+        // Both full and no-email constructors are exercised below.
+        // Interface references hold three different concrete contact types.
         Displayable[] contacts = {
             new BusinessContact("Elena", "Torres", "703-555-0101", "elena@example.com",
                 "120 Sample Lane", "Woodbridge", "VA", "22191", "Sample Design Studio"),
-            new FamilyContact("Daniel", "Cruz", "571-555-0102", "daniel@example.com",
+            new FamilyContact("Daniel", "Cruz", "571-555-0102",
                 "45 Example Court", "Manassas", "VA", "20110", "Cousin"),
-            new FriendContact("Maya", "Bennett", "540-555-0103", "maya@example.com",
+            new FriendContact("Maya", "Bennett", "540-555-0103",
                 "82 Demo Drive", "Fredericksburg", "VA", "22401", "Hiking")
         };
-        System.out.println("Project Week 2 - Contacts Application");
-        System.out.println("Software Design, Interfaces, and Polymorphism");
+        System.out.println("Project Week 3 - Contacts Application");
+        System.out.println("Abstraction, Constructors, and Access Specifiers");
         System.out.println("Michelle Cruz");
         System.out.println("Welcome! Type a menu number and press Enter.");
         System.out.println("This demo contains fictional sample contacts.");
@@ -32,7 +33,7 @@ public class ContactApp {
                 switch (selection) {
                     case "1":
                         System.out.println("\nCONTACT DIRECTORY");
-                        // Polymorphism: the runtime object determines which display() runs.
+                        // Shared display() calls the abstract hooks implemented by each subtype.
                         for (Displayable contact : contacts) {
                             contact.display();
                             System.out.println();
