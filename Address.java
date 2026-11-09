@@ -1,6 +1,6 @@
 /**
  * Name: Michelle Cruz
- * Date: November 1, 2026
+ * Date: November 9, 2026
  * Purpose: Stores the address owned by a contact.
  */
 public class Address {
@@ -15,6 +15,11 @@ public class Address {
         this.state = state;
         this.zip = zip;
     }
+
+    public String getStreet() { return street; }
+    public String getCity() { return city; }
+    public String getState() { return state; }
+    public String getZip() { return zip; }
 
     public String toString() {
         return street + ", " + city + ", " + state + " " + zip;

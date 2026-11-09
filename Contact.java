@@ -1,9 +1,10 @@
 /**
  * Name: Michelle Cruz
- * Date: November 1, 2026
+ * Date: November 9, 2026
  * Purpose: Defines shared contact information and demonstrates composition.
  */
 public abstract class Contact implements Displayable {
+    private int id;
     private final String firstName;
     private final String lastName;
     private final String phone;
@@ -20,6 +21,16 @@ public abstract class Contact implements Displayable {
         this.address = new Address(street, city, state, zip);
     }
 
+    public int getId() { return id; }
+    // Package access: the repository assigns the saved record ID.
+    void assignId(int value) { id = value; }
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
+    public String getPhone() { return phone; }
+    public String getEmail() { return email; }
+    public Address getAddress() { return address; }
+    public abstract String getCategoryValue();
+
     // Abstraction: every concrete contact must supply its category and detail.
     public abstract String getType();
     protected abstract String getDetail();
@@ -33,6 +44,7 @@ public abstract class Contact implements Displayable {
     // Interface implementation: supplies the display behavior required by Displayable.
     @Override
     public final void display() {
+        System.out.println("Contact ID: " + id);
         System.out.println("Type: " + getType());
         System.out.println("Name: " + firstName + " " + lastName);
         System.out.println("Phone: " + phone);

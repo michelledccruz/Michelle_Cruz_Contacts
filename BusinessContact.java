@@ -1,6 +1,6 @@
 /**
  * Name: Michelle Cruz
- * Date: November 1, 2026
+ * Date: November 9, 2026
  * Purpose: Represents a business contact using inheritance.
  */
 // Inheritance: BusinessContact extends the shared Contact base class.
@@ -16,6 +16,9 @@ public class BusinessContact extends Contact {
 
     @Override
     public String getType() { return "Business"; }
+
+    @Override
+    public String getCategoryValue() { return company; }
 
     // Protected: only the class hierarchy needs this display hook.
     @Override

@@ -1,6 +1,6 @@
 /**
  * Name: Michelle Cruz
- * Date: November 1, 2026
+ * Date: November 9, 2026
  * Purpose: Represents a family contact using inheritance.
  */
 // Inheritance: FamilyContact extends the shared Contact base class.
@@ -16,6 +16,9 @@ public class FamilyContact extends Contact {
 
     @Override
     public String getType() { return "Family"; }
+
+    @Override
+    public String getCategoryValue() { return relationship; }
 
     // Protected: only the class hierarchy needs this display hook.
     @Override
